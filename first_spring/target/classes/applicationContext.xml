@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--2~5行是spring的约束条件，无需手写-->
+<!--使用p命名空间来简化属性的注入-->
+<!--xmlns:p="http://www.springframework.org/schema/p"-->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+        <!--配置一个bean，将指定类配置给Spring，让Spring创建其对象实例-->
+    <bean id="helloSpring" class="spring.com.ssm.HelloSpring">
+        <!--为属性赋值-->
+        <property name="userName" value="张三"></property>
+    </bean>
+    <!--<bean id="adminInfo" class="spring.com.ssm.AdminInfo">-->
+        <!--&lt;!&ndash;setter方法注入&ndash;&gt;-->
+        <!--<property name="id" value="5"></property>-->
+        <!--&lt;!&ndash;构造方法注入&ndash;&gt;-->
+        <!--<constructor-arg name="name" value="admin"></constructor-arg>-->
+        <!--<constructor-arg name="pwd" value="123456"></constructor-arg>-->
+    <!--</bean>-->
+    <!--使用p命名空间法注入值-->
+    <bean id="admin" class="spring.com.ssm.AdminInfo" p:id="8" p:name="liwinal" p:pwd="222222"></bean>
+</beans>
