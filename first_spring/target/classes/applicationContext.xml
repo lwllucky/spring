@@ -21,4 +21,11 @@
     <!--</bean>-->
     <!--使用p命名空间法注入值-->
     <bean id="admin" class="spring.com.ssm.AdminInfo" p:id="8" p:name="liwinal" p:pwd="222222"></bean>
+    <!--配置创建UserDaoImpl的实例-->
+    <bean id="userDao" class="spring.com.ssm.dao.impl.UserDaoImpl"></bean>
+    <!--配置创建UserServiceImpl的实例-->
+    <bean id="userService" class="spring.com.ssm.service.impl.UserServiceImpl">
+        <!--属性setter方法依赖注入数据访问层组件-->
+        <property name="userDao" ref="userDao"></property>
+    </bean>
 </beans>
