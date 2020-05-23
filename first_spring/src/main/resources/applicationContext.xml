@@ -5,8 +5,28 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/c"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-       http://www.springframework.org/schema/beans/spring-beans.xsd">
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       https://www.springframework.org/schema/context/spring-context.xsd">
+    <!--实例化业务类的Bean-->
+    <bean id="productService" class="spring.aop.com.ssm.service.impl.ProductServiceImpl"></bean>
+    <!--实例化实例化日志通知/增强处理类（切面）的Bean-->
+    <bean id="allLogAdvice" class="spring.aop.com.ssm.aop.AllLogAdvice"/>
+    <!--配置aop-->
+    <aop:config>
+        <!--配置日志切面-->
+        <aop:aspect id="logaop" ref="allLogAdvice">
+            <!--定义切入点，切入点采用正则表达式，含义是对browse的方法进行拦截-->
+            <aop:pointcut expression="execution(public void browse(String,String))" id="logpointcut"/>
+            <!--将日志通知类中的myBeforeAdvice方法指定为前置通知-->
+            <aop:before method="myBeforeAdvice" pointcut-ref="logpointcut"/>
+        </aop:aspect>
+    </aop:config>
+    <!--配置自动扫描的基包-->
+    <context:component-scan base-package="spring.com.ssm" />
         <!--配置一个bean，将指定类配置给Spring，让Spring创建其对象实例-->
     <bean id="helloSpring" class="spring.com.ssm.HelloSpring">
         <!--为属性赋值-->

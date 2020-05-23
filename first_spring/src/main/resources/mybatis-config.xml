@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!--加载属性文件-->
+    <properties resource="db.properties"></properties>
+    <!--给包中的类注册别名-->
+    <typeAliases>
+        <package name="mybatis.com.mybatis.pojo" />
+    </typeAliases>
+    <!--配置环境-->
+    <environment id="development">
+        <!--使用JDBC事务-->
+
+    </environment>
+    <!--引用映射文件-->
+    <mappers>
+        <mapper resource="mybatis/com/mybatis/mapper/U"
+    </mappers>
+</configuration>
