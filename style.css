@@ -1,0 +1,25 @@
+/* 
+* @Author: liwinallucky
+* @Date:   2020-05-02 18:03:01
+* @Last Modified by:   liwinallucky
+* @Last Modified time: 2020-05-03 18:15:10
+*/
+@charset "utf-8"
+
+#nav {
+    height:73px;
+    float:left;
+    width:930px;
+}
+#nav ul {
+    float:left;
+    list-style-type:none;
+}
+#nav ul li {
+    height:35px;
+    line-height:35px;  /*  让内容垂直居中  */
+    display:inline;  /*  将li设置成内联元素就可以了  */
+}
+a{
+	color:hsla(20,100%,50%,0.5);
+}
